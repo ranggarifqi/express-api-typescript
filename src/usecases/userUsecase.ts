@@ -13,7 +13,7 @@ export const findUsers = async (opts: FindManyOptions<User>): Promise<User[]> =>
   return userRepository.find(opts);
 };
 
-export const findUserById = async (userId: string, opts?: FindOneOptions<User>) => {
+export const findUserById = async (userId: string, opts?: FindOneOptions<User>): Promise<User> => {
   return userRepository.findById(userId, opts);
 };
 

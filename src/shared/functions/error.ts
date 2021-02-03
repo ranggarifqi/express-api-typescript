@@ -1,8 +1,8 @@
 import { Response } from "express";
 import { HttpError } from '../classes/HttpError';
-import { IErrorResponse } from '../interfaces/response';
+import { IErrorHandler, IErrorResponse, MyError } from '../interfaces';
 
-export const errorHandler = (res: Response, err: any) => {
+export const errorHandler: IErrorHandler = (res: Response, err: MyError) => {
   if (err instanceof HttpError) {
     return res.status(err.status).send({
       error: err.name,

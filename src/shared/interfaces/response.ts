@@ -1,7 +1,8 @@
+
 export interface ISuccessResponse {
   statusCode: number;
   message: string;
-  results: any;
+  results: unknown;
 }
 
 export interface IErrorResponse {

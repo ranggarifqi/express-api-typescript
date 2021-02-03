@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import * as userUsecase from '../../../usecases/userUsecase';
 import { errorHandler } from '../../../shared/functions/error';
-import { ILoginUser, ISuccessResponse } from '../../../shared/interfaces';
+import { ILoginUser, IRequestHandler, ISuccessResponse } from '../../../shared/interfaces';
 
-export const findUser = async (req: Request, res: Response) => {
+export const findUser: IRequestHandler = async (req: Request, res: Response) => {
   try {
     const filter = req.query;
     const users = await userUsecase.findUsers(filter);
@@ -18,7 +18,7 @@ export const findUser = async (req: Request, res: Response) => {
   }
 }
 
-export const loginUser = async (req: Request, res: Response) => {
+export const loginUser: IRequestHandler = async (req: Request, res: Response) => {
   try {
     const body = req.body as ILoginUser;
 
