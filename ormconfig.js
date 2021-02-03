@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable no-undef */
 require('dotenv').config();
 
 // We can setup multiple DB connections here

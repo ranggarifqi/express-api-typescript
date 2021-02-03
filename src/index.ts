@@ -6,7 +6,7 @@ import bodyParser from "body-parser";
 import { serverConfig } from "./config";
 import createRoutes from "./routes";
 import { dbConnection } from "./database/index";
-import swaggerOptions from "./config/swagger";
+// import swaggerOptions from "./config/swagger";
 import { useJwtStrategy } from "./shared/lib/auth"
 
 dotenv.config();
