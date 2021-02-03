@@ -1,7 +1,7 @@
-# Rangga's Staffany Take Home Test
+# Rangga's Express API Boilerplate
 
 ## Stacks
-- Framework: Hapi JS
+- Framework: Express JS
 - ORM: TypeORM
 - DB: PostgreSQL
 
@@ -18,11 +18,11 @@ DB_HOST="localhost"
 DB_PORT="5432"
 DB_USERNAME="<your postgres username>"
 DB_PASSWORD="<your postgres password>"
-DB_NAME="staffany_shift_rangga"
+DB_NAME="<your db name>"
 
-JWT_SECRET="staffanyranggatest"
+JWT_SECRET="12asdj21312j3"
 ```
-5. Create a PostgreSQL database with name that you specifies in .env (which is, **staffany_shift_rangga**)
+5. Create a PostgreSQL database with name that you specifies in .env
 6. `npm run dev` -> running this first time will generate the tables
 7. `Ctrl + c` -> Terminate current running server
 8. `npm run migrate` -> to execute seed user & role data
@@ -31,22 +31,3 @@ JWT_SECRET="staffanyranggatest"
 ## How to run
 1. `npm run dev`
 2. `npm run test`
-
-## Basic Requirement Checklist
-- [x] User should be able to see a list of shifts
-- [x] User should be able to see the name, date, start time, end time of each shift
-- [x] User should be able to create & update shifts via form
-- [x] User should be able to delete shifts
-
-## Advance Requirements: Backend Focus
-- [x] User should not be able to create or edit a shift such that is clashing with an existing shift
-- [x] User should be able to "publish" an entire week's worth of shifts at a time
-- [x] User should not be able to edit or delete a shift after it's been "published"
-- [x] User should not be able to create shifts in a "week" that is "published"
-- [x] Write tests (still not 100% coverage yet)
-
-## Bonus
-- [x] JWT Authentication
-- [x] Swagger Documentation (access at http://localhost:3000/documentation)
-- [x] Database migration & seeder
-- [x] JOI Validation
