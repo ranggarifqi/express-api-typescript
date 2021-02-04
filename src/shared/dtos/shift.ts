@@ -6,7 +6,7 @@ export const createShiftDto = Joi.object({
   name: Joi.string().required(),
   date: Joi.date().required(),
   startTime: Joi.string().regex(timeRegex).required(),
-  endTime:Joi.string().regex(timeRegex).required()
+  endTime:Joi.string().regex(timeRegex).required(),
 });
 
 export const updateShiftDto = Joi.object({

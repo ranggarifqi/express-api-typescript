@@ -6,7 +6,7 @@ import {
   FindManyOptions,
   FindConditions,
 } from 'typeorm';
-import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity';
+import { QueryDeepPartialEntity, } from 'typeorm/query-builder/QueryPartialEntity';
 
 const logger = moduleLogger('userRepository');
 

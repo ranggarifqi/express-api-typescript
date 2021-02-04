@@ -9,13 +9,13 @@ export abstract class BaseTimestamp {
   @CreateDateColumn()
   createdAt: number;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, })
   createdBy: string;
 
   @UpdateDateColumn()
   updatedAt: number;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, })
   updatedBy: string;
 }
 
@@ -23,18 +23,18 @@ export abstract class BaseTimestampWithSoftDelete {
   @CreateDateColumn()
   createdAt: number;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, })
   createdBy: string;
 
   @UpdateDateColumn()
   updatedAt: number;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, })
   updatedBy: string;
 
   @DeleteDateColumn()
   deletedAt: number;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, })
   deletedBy: string;
 }

@@ -1,1 +1,1 @@
-export * from "./jwtStrategy"
+export * from './jwtStrategy';

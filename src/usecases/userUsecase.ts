@@ -1,13 +1,13 @@
-import * as jwt from "jsonwebtoken";
+import * as jwt from 'jsonwebtoken';
 
-import { IRegisterUser, ILoginUser, ILoginUserResult } from '../shared/interfaces/user';
+import { IRegisterUser, ILoginUser, ILoginUserResult, } from '../shared/interfaces/user';
 import User from '../database/default/entity/user';
-import { generatepassword } from '../shared/functions';
+import { generatepassword, } from '../shared/functions';
 import * as userRepository from '../database/default/repository/userRepository';
-import { FindManyOptions, FindOneOptions } from 'typeorm';
-import { HttpError } from '../shared/classes/HttpError';
-import { comparepassword } from '../shared/functions/commons';
-import { serverConfig } from '../config/server';
+import { FindManyOptions, FindOneOptions, } from 'typeorm';
+import { HttpError, } from '../shared/classes/HttpError';
+import { comparepassword, } from '../shared/functions/commons';
+import { serverConfig, } from '../config/server';
 
 export const findUsers = async (opts: FindManyOptions<User>): Promise<User[]> => {
   return userRepository.find(opts);
@@ -27,35 +27,36 @@ export const registerUser = async (payload: IRegisterUser): Promise<User> => {
   return userRepository.create(newUser);
 };
 
+// login function
 export const login = async (payload: ILoginUser): Promise<ILoginUserResult> => {
   const user = await userRepository.findOne({
-    email: payload.email
+    email: payload.email,
   }, {
-    select: ["id", "email", "mobile", "active", "password"],
-    relations: ["role"]
+    select: ['id', 'email', 'mobile', 'active', 'password',],
+    relations: ['role',],
   });
   if (!user) {
-    throw new HttpError(401, "Incorrect email or password");
+    throw new HttpError(401, 'Incorrect email or password');
   }
 
   const correctPass = await comparepassword(payload.password, user.password);
 
   if (!correctPass) {
-    throw new HttpError(401, "Incorrect email or password");
+    throw new HttpError(401, 'Incorrect email or password');
   }
 
   if (!user.active) {
-    throw new HttpError(403, "Inactive user");
+    throw new HttpError(403, 'Inactive user');
   }
 
   const jwtPayload = {
     id: user.id,
     email: user.email,
-    role: user.role.name
+    role: user.role.name,
   };
   
   const token = jwt.sign(jwtPayload, serverConfig.AUTH_TOKEN.SECRET, {
-    expiresIn: serverConfig.AUTH_TOKEN.EXPIRE_HRS + 'h'
+    expiresIn: serverConfig.AUTH_TOKEN.EXPIRE_HRS + 'h',
   });
 
   return {
@@ -63,6 +64,6 @@ export const login = async (payload: ILoginUser): Promise<ILoginUserResult> => {
     email: user.email,
     mobile: user.mobile,
     role: user.role.name,
-    token
+    token,
   };
 };

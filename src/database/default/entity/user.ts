@@ -6,12 +6,12 @@ import {
   ManyToOne,
 } from 'typeorm';
 
-import { BaseTimestamp } from './baseTimestamp';
+import { BaseTimestamp, } from './baseTimestamp';
 import Role from './role';
 
 @Entity()
-@Unique(['email'])
-@Unique(['mobile'])
+@Unique(['email',])
+@Unique(['mobile',])
 export default class User extends BaseTimestamp {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -22,10 +22,10 @@ export default class User extends BaseTimestamp {
   @Column()
   mobile: string;
 
-  @Column({ select: false })
+  @Column({ select: false, })
   password: string;
 
-  @Column({ default: true })
+  @Column({ default: true, })
   active: boolean;
 
   @Column()

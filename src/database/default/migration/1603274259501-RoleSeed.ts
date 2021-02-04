@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { getManager, MigrationInterface, QueryRunner } from "typeorm";
+import { getManager, MigrationInterface, QueryRunner, } from 'typeorm';
 import roleSeeds from '../seeds/roleSeeds';
 import Role from '../entity/role';
 

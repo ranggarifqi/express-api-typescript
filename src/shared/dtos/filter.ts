@@ -1,4 +1,4 @@
-import Joi from "joi";
+import Joi from 'joi';
 
 /**
  * How to use: https://typeorm.io/#/find-options
