@@ -23,7 +23,9 @@ const init = async () => {
   useJwtStrategy(passport);
 
   const specs = swaggerJSDoc(swaggerOptions);
-  server.use('/docs', swaggerUI.serve, swaggerUI.setup(specs));
+  server.use('/docs', swaggerUI.serve, swaggerUI.setup(specs, {
+    explorer: true
+  }));
 
   server.get('/', (req, res) => {
     return res.send('Hello World');
