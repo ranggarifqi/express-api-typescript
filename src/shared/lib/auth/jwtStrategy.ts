@@ -1,6 +1,6 @@
-import { PassportStatic, } from 'passport';
-import { ExtractJwt, Strategy as JWTStrategy, StrategyOptions, } from 'passport-jwt';
-import { serverConfig, } from '../../../config';
+import { PassportStatic } from 'passport';
+import { ExtractJwt, Strategy as JWTStrategy, StrategyOptions } from 'passport-jwt';
+import { serverConfig } from '../../../config';
 import * as userRepository from '../../../database/default/repository/userRepository';
 
 export const useJwtStrategy = (passport: PassportStatic): void => {
@@ -11,7 +11,7 @@ export const useJwtStrategy = (passport: PassportStatic): void => {
   
   const jwtStrategy = new JWTStrategy(opts, async (payload, done) => {
     const user = await userRepository.findById(payload.id, {
-      relations: ['role',],
+      relations: ['role'],
     });
 
     if (!user) {

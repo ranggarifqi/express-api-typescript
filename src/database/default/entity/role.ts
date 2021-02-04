@@ -3,14 +3,14 @@ import {
   PrimaryGeneratedColumn,
   Column,
   Unique,
-  OneToMany,
+  OneToMany
 } from 'typeorm';
 
-import { BaseTimestampWithSoftDelete, } from './baseTimestamp';
+import { BaseTimestampWithSoftDelete } from './baseTimestamp';
 import User from './user';
 
 @Entity()
-@Unique(['name',])
+@Unique(['name'])
 export default class Role extends BaseTimestampWithSoftDelete {
   @PrimaryGeneratedColumn('uuid')
   id: string;

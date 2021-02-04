@@ -1,7 +1,7 @@
-import { NextFunction, Request, Response, } from 'express';
-import {Schema,} from 'joi';
-import { errorHandler, } from '../functions';
-import { IMiddlewareHandler, } from '../interfaces';
+import { NextFunction, Request, Response } from 'express';
+import {Schema} from 'joi';
+import { errorHandler } from '../functions';
+import { IMiddlewareHandler } from '../interfaces';
 
 type Location = 'body' | 'query' | 'path'
 

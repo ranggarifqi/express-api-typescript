@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { MigrationInterface, QueryRunner, getManager, } from 'typeorm';
+import { MigrationInterface, QueryRunner, getManager } from 'typeorm';
 import User from '../entity/user';
 import userSeeds from '../seeds/userSeeds';
-import { generatepassword, } from '../../../shared/functions/commons';
+import { generatepassword } from '../../../shared/functions/commons';
 
 export class UserSeed1604040030380 implements MigrationInterface {
   public async up(_: QueryRunner): Promise<void> {

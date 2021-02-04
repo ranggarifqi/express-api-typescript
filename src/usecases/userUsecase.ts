@@ -1,13 +1,13 @@
 import * as jwt from 'jsonwebtoken';
 
-import { IRegisterUser, ILoginUser, ILoginUserResult, } from '../shared/interfaces/user';
+import { IRegisterUser, ILoginUser, ILoginUserResult } from '../shared/interfaces/user';
 import User from '../database/default/entity/user';
-import { generatepassword, } from '../shared/functions';
+import { generatepassword } from '../shared/functions';
 import * as userRepository from '../database/default/repository/userRepository';
-import { FindManyOptions, FindOneOptions, } from 'typeorm';
-import { HttpError, } from '../shared/classes/HttpError';
-import { comparepassword, } from '../shared/functions/commons';
-import { serverConfig, } from '../config/server';
+import { FindManyOptions, FindOneOptions } from 'typeorm';
+import { HttpError } from '../shared/classes/HttpError';
+import { comparepassword } from '../shared/functions/commons';
+import { serverConfig } from '../config/server';
 
 export const findUsers = async (opts: FindManyOptions<User>): Promise<User[]> => {
   return userRepository.find(opts);
@@ -32,8 +32,8 @@ export const login = async (payload: ILoginUser): Promise<ILoginUserResult> => {
   const user = await userRepository.findOne({
     email: payload.email,
   }, {
-    select: ['id', 'email', 'mobile', 'active', 'password',],
-    relations: ['role',],
+    select: ['id', 'email', 'mobile', 'active', 'password'],
+    relations: ['role'],
   });
   if (!user) {
     throw new HttpError(401, 'Incorrect email or password');

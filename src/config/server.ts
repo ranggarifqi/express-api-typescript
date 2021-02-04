@@ -13,7 +13,7 @@ export const serverConfig = Object.freeze({
     ? process.env.BASE_API_PATH
     : DEFAULT_BASE_API_PATH,
   PORT: process.env.PORT ? process.env.PORT : DEFAULT_PORT,
-  WHITE_LISTED_ORIGINS: ['http://localhost:3000',],
+  WHITE_LISTED_ORIGINS: ['http://localhost:3000'],
   SALT_ROUNDS: 10,
   AUTH_TOKEN: {
     SECRET: process.env.JWT_SECRET || DEFAULT_JWT_SECRET,

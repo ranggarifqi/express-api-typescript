@@ -1,7 +1,7 @@
-import { Request, Response, } from 'express';
+import { Request, Response } from 'express';
 import * as userUsecase from '../../../usecases/userUsecase';
-import { errorHandler, } from '../../../shared/functions/error';
-import { ILoginUser, IRequestHandler, ISuccessResponse, } from '../../../shared/interfaces';
+import { errorHandler } from '../../../shared/functions/error';
+import { ILoginUser, IRequestHandler, ISuccessResponse } from '../../../shared/interfaces';
 
 export const findUser: IRequestHandler = async (req: Request, res: Response) => {
   try {

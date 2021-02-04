@@ -2,12 +2,14 @@ import express from 'express';
 import * as dotenv from 'dotenv';
 import passport from 'passport';
 import bodyParser from 'body-parser';
+import swaggerJSDoc from 'swagger-jsdoc';
+import swaggerUI from 'swagger-ui-express';
 
-import { serverConfig, } from './config';
+import { serverConfig } from './config';
 import createRoutes from './routes';
-import { dbConnection, } from './database/index';
-// import swaggerOptions from "./config/swagger";
-import { useJwtStrategy, } from './shared/lib/auth';
+import { dbConnection } from './database/index';
+import swaggerOptions from './config/swagger';
+import { useJwtStrategy } from './shared/lib/auth';
 
 dotenv.config();
 
@@ -20,6 +22,9 @@ const init = async () => {
 
   useJwtStrategy(passport);
 
+  const specs = swaggerJSDoc(swaggerOptions);
+  server.use('/docs', swaggerUI.serve, swaggerUI.setup(specs));
+
   server.get('/', (req, res) => {
     return res.send('Hello World');
   });
@@ -31,7 +36,9 @@ const init = async () => {
   });
 
   server.listen(serverConfig.PORT, () => {
-    console.log(`⚡️[server]: Server is running at https://localhost:${serverConfig.PORT}`);
+    console.log(
+      `⚡️[server]: Server is running at https://localhost:${serverConfig.PORT}`
+    );
   });
 };
 

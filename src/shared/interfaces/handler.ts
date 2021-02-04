@@ -1,5 +1,5 @@
-import { NextFunction, Request, Response, } from 'express';
-import { HttpError, } from '../classes/HttpError';
+import { NextFunction, Request, Response } from 'express';
+import { HttpError } from '../classes/HttpError';
 
 type RequstHandlerResponse = Promise<Response<unknown, Record<string, unknown>>> | Response<unknown, Record<string, unknown>>;
 export type MyError = Error | HttpError

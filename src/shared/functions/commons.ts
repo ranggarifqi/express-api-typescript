@@ -1,5 +1,5 @@
 import * as bcrypt from 'bcrypt';
-import { serverConfig, } from '../../config';
+import { serverConfig } from '../../config';
 /**
  * Sample Utility method
  */

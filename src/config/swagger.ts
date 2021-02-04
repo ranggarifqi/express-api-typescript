@@ -1,21 +1,30 @@
-import * as HapiSwagger from 'hapi-swagger';
-import Package from '../../package.json';
+import { Options } from 'swagger-jsdoc';
 
-const swaggerOptions: HapiSwagger.RegisterOptions = {
-  info: {
-    title: 'Api Documentation',
-    version: Package.version,
-  },
-  grouping: 'tags',
-  securityDefinitions: {
-    'jwt': {
-      'type': 'apiKey',
-      'name': 'Authorization',
-      'in': 'header',
-      // 'x-keyPrefix': 'Bearer '
+const swaggerOptions: Options = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Express API Documentation',
+      version: '0.1.0',
+      description:
+        'This is a simple CRUD API application made with Express and documented with Swagger',
+      license: {
+        name: 'MIT',
+        url: 'https://spdx.org/licenses/MIT.html',
+      },
+      contact: {
+        name: 'Rangga Rifqi Pratama',
+        url: 'https://ranggarifqi.com',
+        email: 'rangga@ranggarifqi.com',
+      },
     },
+    servers: [
+      {
+        url: 'http://localhost:3000',
+      },
+    ],
   },
-  security: [{ jwt: [], },],
+  apis: ['./routes/*.ts'],
 };
 
 export default swaggerOptions;

@@ -1,7 +1,7 @@
-import { Express, } from 'express';
+import { Express } from 'express';
 import * as userController from './userController';
-import { filterSchema, userLoginDto, } from '../../../shared/dtos';
-import { isAuthenticatedMiddleware, validate, } from '../../../shared/middlewares';
+import { filterSchema, userLoginDto } from '../../../shared/dtos';
+import { isAuthenticatedMiddleware, validate } from '../../../shared/middlewares';
 
 
 export default function (app: Express, basePath: string): void {
