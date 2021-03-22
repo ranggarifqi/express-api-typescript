@@ -1,4 +1,5 @@
 import { Options } from 'swagger-jsdoc';
+import { serverConfig } from '.';
 
 const swaggerOptions: Options = {
   definition: {
@@ -20,11 +21,12 @@ const swaggerOptions: Options = {
     },
     servers: [
       {
-        url: 'http://localhost:3000',
+        url: 'http://localhost:' + serverConfig.PORT,
+        description: 'Development server'
       },
     ],
   },
-  apis: ['**/*.ts'],
+  apis: ['./routes/*.ts', './shared/*.ts'],
 };
 
 export default swaggerOptions;
